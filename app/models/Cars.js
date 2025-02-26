@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const carsSchema = new mongoose.Schema({
     make: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Make',
         required: [true, 'Please add a make'],
         unique: {true : 'Make already exists'},
         trim: true,
@@ -17,7 +18,7 @@ const carsSchema = new mongoose.Schema({
         trim: true,
         minlength: [2, 'Model can not be less than 2 characters'],
         maxlength: [50, 'Model can not be more than 50 characters'],
-        match: [/^[a-zA-Z0-9]+$/, 'Model can only contain letters and numbers']
+        // match: [/^[a-zA-Z0-9]+$/, 'Model can only contain letters and numbers']
     },
     year: {
         type: Number,
@@ -33,7 +34,9 @@ const carsSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-
+},
+{
+    timestamps: true
 });
 
-module.exports = mongoose.model('Car', carsSchema);
+module.exports = mongoose.model('Make', carsSchema);
