@@ -17,7 +17,7 @@ const engineSchema = new mongoose.Schema(
             required: {true: 'Please add a model'},
             trim: true,
             unique: {true : 'Model already exists'},
-            match: [/^[a-zA-Z0-9]+$/, 'Model can only contain letters and numbers'],
+            // match: [/^[a-zA-Z0-9]+$/, 'Model can only contain letters and numbers'],
             minlength: [2, 'Model can not be less than 2 characters'],
             maxlength: [50, 'Model can not be more than 50 characters']
 
@@ -34,12 +34,12 @@ const engineSchema = new mongoose.Schema(
             max: [new Date().getFullYear(), 'Year can not be greater than current year']
         },
         engineManufacturer: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: String,
             ref: 'EngineManufacturer',
             required: {true: 'Please add an engine manufacturer'},
             trim: true,
             unique: {true : 'Engine type already exists'},
-            // match : [/^[a-zA-Z0-9]+$/, 'Engine type can only contain letters and numbers'],
+            match : [/^[a-zA-Z0-9]+$/, 'Engine type can only contain letters and numbers'],
             minlength: [2, 'Engine type can not be less than 2 characters'],
             maxlength: [50, 'Engine type can not be more than 50 characters']
         },

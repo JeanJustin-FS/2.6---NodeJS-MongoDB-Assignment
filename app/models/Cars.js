@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 
 const carsSchema = new mongoose.Schema({
     make: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'Make',
         required: [true, 'Please add a make'],
         unique: {true : 'Make already exists'},
         trim: true,
         minlength: [2, 'Make can not be less than 2 characters'],
         maxlength: [50, 'Make can not be more than 50 characters'],
-        match: [/^[a-zA-Z0-9]+$/, 'Make can only contain letters and numbers']
+        // match: [/^[a-zA-Z0-9]+$/, 'Make can only contain letters and numbers']
     },
     model: {
         type: String,

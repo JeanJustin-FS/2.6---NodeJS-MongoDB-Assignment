@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.use('/cars', carRoutes);
-router.use('/manufacturer/', manufacturerRoutes);
+router.use('/manufacturers/', manufacturerRoutes);
 
 
 module.exports = router;
